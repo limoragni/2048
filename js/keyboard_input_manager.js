@@ -34,7 +34,7 @@ KeyboardInputManager.prototype.listen = function () {
     72: 3
   };
 
-  document.addEventListener("keydown", function (event) {
+  /*document.addEventListener("keydown", function (event) {
     var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
     var mapped    = map[event.which];
@@ -46,15 +46,16 @@ KeyboardInputManager.prototype.listen = function () {
         feedbackContainer.innerHTML = ' ';
         self.emit("move", mapped);
       }
-
+     
       if (event.which === 32) self.restart.bind(self)(event);
+      
     }
-  });
+  });*/
 
   var retry = document.getElementsByClassName("retry-button")[0];
   retry.addEventListener("click", this.restart.bind(this));
 
-  var hintButton = document.getElementById('hint-button');
+  /*var hintButton = document.getElementById('hint-button');
   hintButton.addEventListener('click', function(e) {
     e.preventDefault();
     var feedbackContainer  = document.getElementById('feedback-container');
@@ -66,7 +67,7 @@ KeyboardInputManager.prototype.listen = function () {
   runButton.addEventListener('click', function(e) {
     e.preventDefault();
     self.emit('run')
-  })
+  })*/
 
 
   // Listen to swipe events
@@ -91,3 +92,4 @@ KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
 };
+

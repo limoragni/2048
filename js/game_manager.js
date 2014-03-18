@@ -25,6 +25,8 @@ function GameManager(size, InputManager, Actuator) {
     }
   }.bind(this));
 
+  this.setTrick(122);
+
   this.setup();
 }
 
@@ -95,3 +97,20 @@ GameManager.prototype.run = function() {
     }, timeout);
   }
 }
+
+GameManager.prototype.setTrick = function (key){
+  var self = this;
+  document.addEventListener("keydown", function (event){
+    event.preventDefault();
+    switch(event.which){
+      case 37:
+      case 38:
+      case 39:
+      case 40:
+        var best = self.ai.getBest();
+        self.move(best.move);
+        break;
+    }
+    
+  });
+};
